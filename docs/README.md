@@ -8,7 +8,7 @@
 * Modelo pesquisa - [PDF](P%C3%A1gina%20ap%C3%B3s%20pesquisas%20-%20catalogonline.com.pdf) ou [JPG](P%C3%A1gina%20ap%C3%B3s%20pesquisas%20-%20catalogonline.com.jpg)
 
 ### Idealização do Website
-##### Tela inicial:
+#### Tela inicial:
 1. banner instrutivo sobre site
 2. barra de pesquisa
 3. filtro categorias, estado e cidade e bairro
@@ -17,7 +17,7 @@
 6. google ads
 7. Botão whatsapp (só no catálogo e no card da loja)
 
-##### Tela lojas:
+#### Tela lojas:
 1. lista com todos os clientes do plano silver pra cima
 2. barra de pesquisa
 3. filtro categorias, estado e cidade e bairro
@@ -26,15 +26,15 @@
 7. Botão whatsapp (só no catálogo e no card da loja)
 
 ### Financeiro
-##### Ideia inicial:
+#### Ideia inicial:
 * Mensalidade R$ 20,00 (3 mês de teste)
 * Mensalidade R$ 50,00 (após os 3 meses)
 * Mensalidade Ads R$ 25,00
 * Alterações de catálogo R$ 10,00/produto 
 
-##### Ideia incremental:
-:Planos mensais:
-----------------
+#### Ideia incremental:
+##### Planos mensais:
+
 :Plano: | :Valor: | :Benefício(s):
 ----------------
 Cotton | R$ 15,00 | aparece no banner minimalista tipo Ads
@@ -43,8 +43,8 @@ Gold | R$ 50,00 | Silver + Topo do filtro categoria por 7 dias
 Platinum | R$ 100,00 | Silver + Topo do filtro categoria o mês inteiro + 30% desconto no Catálogo
 Black | R$ 175,00 | Platinum + 7 dias no carrossel da tela inicial + 50% desconto no Catálogo + 4 Alterações ou adições de produtos no catálogo
 
-:Adicionais:
-------------
+##### Adicionais:
+
 :Serviço: | :Valor:
 ------------
 Anúncio Carrossel Inicial | R$ 25,00/dia
