@@ -36,7 +36,7 @@
 ##### Planos mensais:
 
  Plano | Valor | Benefício(s)
-:--------: | :--------: | :--------:
+:--------: | :--------: | :--------
 Cotton | R$ 15,00 | aparece no banner minimalista tipo Ads
 Silver | R$ 25,00 | aparece na lista geral e buscas
 Gold | R$ 50,00 | Silver + Topo do filtro categoria por 7 dias
@@ -46,7 +46,7 @@ Black | R$ 175,00 | Platinum + 7 dias no carrossel da tela inicial + 50% descont
 ##### Adicionais:
 
 Serviço | Valor
-:------: | :------:
+:------: | :------
 Anúncio Carrossel Inicial | R$ 25,00/dia
 Anúncio Topo Categoria | R$ 15,00/dia
 Criação de catálogo | R$ 100,00
