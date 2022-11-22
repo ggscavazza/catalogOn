@@ -1,0 +1,20 @@
+on: 
+  push:
+    branches:
+      - master
+name: 🚀 Implementar sistema no push
+jobs:
+  web-deploy:
+    name: 🎉 Implementando alterações
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Pegando último código
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sincronizando arquivos
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.ftp_host }}
+        username: ${{ secrets.ftp_user }}
+        password: ${{ secrets.ftp_password }}
+        server-dir: catalogon.genesisdevstudio.com/
