@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Teste de Geolocalização</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <script>
+            $(document).ready(function() {
+                /// Quando usuário clicar em ver endereço será feito todos os passo abaixo
+                $('#ver').click(function() {
+                    if( ! 'geolocation' in navigator ) {
+                        // Não suporta Geolocation HTML5...
+                        alert("Não suporta Geolocation");
+                    } else {
+                        // Suporta Geolocation HTML5. Vamos em frente!                
+                        function geoSuccess( pos ) {
+                            // armazena as coordenadas de latitude e longitude
+                            var lat = pos.coords.latitude;
+                            var lng = pos.coords.longitude;
+
+                            lat = lat.serialize();
+                            lng = lng.serialize();
+                            var dados = {latitude: lat, longitude: lng};
+
+                            $.ajax({
+                                type: 'POST',
+                                dataType: 'json',
+                                url: 'pesquisar.php',
+                                async: true,
+                                data: dados,
+                                success: function(response) {
+                                    alert("Entrou no sucesso!");
+                                }
+                            });
+
+                            return false;
+
+                            /*
+                            fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+lat+'&lon='+lng)
+                                .then(response => response.json())
+                                .then(data => {
+                                    //Aqui iremos trabalhar com o JSON
+                                    
+                                    data.forEach(resultado => {
+                                        // Log de cada nome de filme
+                                        console.log(resultado.display_name);
+                                    });
+                                }).catch(err => {
+                                    //Fazer algo com os erros aqui
+                                    alert("erro API");
+                                });*/
+                        };
+
+                        function geoError( err ) {
+                            switch( err.code ) {
+                                case 1:
+                                    // permissão negada pelo usuario
+                                    break;
+                                case 2:
+                                    // nao foi possível alcançar os satélites GPS
+                                    break;
+                                case 3:
+                                    // a requisição demorou demais para retornar
+                                    break;
+                                case 0:
+                                    // ocorreu um erro desconhecido...
+                                    break;
+                            }
+                        }
+
+                        var geoOptions = {
+                            enableHighAccuracy: true,
+                            timeout: 30000,
+                            maximumAge: 3000
+                        };
+
+                        navigator.geolocation.getCurrentPosition( geoSuccess, geoError, geoOptions );
+                    }
+                });            
+            });
+        </script>
+    </body>
+</html>
