@@ -25,13 +25,10 @@
             }
 
             .card{
-                width: 80%;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                border-radius: 20px;
-                padding: 3%;
                 box-shadow: 5px 5px 5px #00000050;
                 background-color: #f9f9f9;
             }
@@ -74,11 +71,23 @@
                 html {
                     padding: 0% 5%;
                 }
+
+                .card{
+                    width: 90%;
+                    border-radius: 20px;
+                    padding: 1%;
+                }
             }
 
             @media screen and (min-height: 769px){
                 html{
                     padding: 0% 15%;
+                }
+
+                .card{
+                    width: 60%;
+                    border-radius: 20px;
+                    padding: 3%;
                 }
             }
         </style>
