@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         
         <title>Teste de Geolocalização</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
         <style>
@@ -45,10 +47,24 @@
                 transition: all 0.5s;
             }
 
-            .btn-busca:hover{
+            .btn-busca:hover, .btn-busca:active{
                 background-color: #55efc4;
                 scale: 1.1;
                 box-shadow: 2px 2px 2px #636e72;
+            }
+
+            .resultado{
+                width: 100%;
+                display: flex;
+                text-align: justify;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 2%;
+            }
+
+            .resultado h3{
+                margin: 1% 0%;
             }
         </style>
     </head>
@@ -56,56 +72,70 @@
     <body>
         <div class="container">
             <div class="card">
+                <div class="resultado">
+                    <h3>Seu endereço é:</h3>
+
+                    <ol>
+                        <li id="pais"></li>
+                        <li id="estado"></li>
+                        <li id="cidade"></li>
+                        <li id="bairro"></li>
+                    </ol>
+                </div>
+
                 <button class="btn-busca" id="ver">Ver endereço</button>
             </div>
         </div>
 
         <script>
+            var lat = null, lng = null, pais = null, uf = null, cidade = null, bairro = null;
+
+            function exibeDados(dados) {
+                pais = dados.address.country;
+                uf = dados.address.state;
+                cidade = dados.address.city;
+                bairro = dados.address.city_district;  
+
+                $('.resultado').css('display', 'flex');
+                $('#pais').text("Pais: "+pais);
+                $('#estado').text("Estado: "+uf);
+                $('#cidade').text("Cidade: "+cidade);
+                $('#bairro').text("Bairro: "+bairro); 
+                
+                console.log(dados);
+            }
+
+            function pegaEndereco(lat, lng) {
+                let url = 'https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+lat+'&lon='+lng;
+               
+                axios.get(url)
+                    .then((response) => {
+                        exibeDados(response.data);
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    });
+            }
+
             $(document).ready(function() {
-                /// Quando usuário clicar em ver endereço será feito todos os passo abaixo
+                /// Quando usuário clicar em ver endereço será feito todos os passo abaixo      
+                
+                $('.resultado').css('display', 'none');
+
                 $('#ver').click(function() {
                     if( ! 'geolocation' in navigator ) {
                         // Não suporta Geolocation HTML5...
                         alert("Não suporta Geolocation");
                     } else {
-                        // Suporta Geolocation HTML5. Vamos em frente!                
+                        // Suporta Geolocation HTML5. Vamos em frente!                        
                         function geoSuccess( pos ) {
                             // armazena as coordenadas de latitude e longitude
-                            var lat = pos.coords.latitude;
-                            var lng = pos.coords.longitude;
-
-                            lat = lat.serialize();
-                            lng = lng.serialize();
-                            var dados = {latitude: lat, longitude: lng};
-
-                            $.ajax({
-                                type: 'POST',
-                                dataType: 'json',
-                                url: 'pesquisar.php',
-                                async: true,
-                                data: dados,
-                                success: function(response) {
-                                    alert("Entrou no sucesso!");
-                                }
-                            });
-
-                            return false;
-
-                            /*
-                            fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+lat+'&lon='+lng)
-                                .then(response => response.json())
-                                .then(data => {
-                                    //Aqui iremos trabalhar com o JSON
-                                    
-                                    data.forEach(resultado => {
-                                        // Log de cada nome de filme
-                                        console.log(resultado.display_name);
-                                    });
-                                }).catch(err => {
-                                    //Fazer algo com os erros aqui
-                                    alert("erro API");
-                                });*/
-                        };
+                            lat = pos.coords.latitude;
+                            lng = pos.coords.longitude;                            
+                            
+                            pegaEndereco(lat, lng);
+                        };                        
 
                         function geoError( err ) {
                             switch( err.code ) {
