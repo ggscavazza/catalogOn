@@ -58,6 +58,7 @@
             .resultado{
                 width: 100%;
                 display: flex;
+                flex-wrap: nowrap;
                 text-align: justify;
                 font-size: 120%;
                 align-items: center;
@@ -68,6 +69,12 @@
 
             .resultado h3{
                 margin: 1% 0%;
+            }
+
+            @media screen and (max-height: 768px){
+                html {
+                    padding: 0% 5%;
+                }
             }
         </style>
     </head>
