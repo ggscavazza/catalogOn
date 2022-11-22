@@ -31,7 +31,6 @@ html{
     padding: 2% 3%;
     border: none;
     transition: all 0.5s;
-    font-size: 120%;
 }
 
 .btn-busca:hover, .btn-busca:active{
@@ -45,7 +44,6 @@ html{
     display: flex;
     flex-wrap: nowrap;
     text-align: justify;
-    font-size: 2em;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -66,6 +64,10 @@ html{
         border-radius: 20px;
         padding: 3% 1%;
     }
+
+    .resultado, .btn-busca{
+        font-size: 1.8em;
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -77,5 +79,9 @@ html{
         width: 60%;
         border-radius: 20px;
         padding: 3%;
+    }
+    
+    .resultado, .btn-busca{
+        font-size: 1.5em;
     }
 }
