@@ -26,6 +26,7 @@
 
 
         .carrosel {
+            perspective: 250px;
             -webkit-perspective: 250px;
             -moz-perspective: 250px;
             width: 400px;
@@ -33,6 +34,26 @@
             top: 50px;
             position: relative;
             margin: 0 auto;
+        }
+
+        @keyframes efeitoCarrosel {
+            from {
+                -webkit-transform: rotateY(360deg) translateZ(130px) rotateY(-360deg);
+                -moz-transform: rotateY(360deg) translateZ(130px) rotateY(-360deg);
+                z-index: 10;
+                opacity: 1
+            }
+
+            50% {
+                z-index: -10;
+            }
+
+            to {
+                -webkit-transform: rotateY(0deg) translateZ(130px) rotateY(0deg);
+                -moz-transform: rotateY(0deg) translateZ(130px) rotateY(0deg);
+                z-index: 10;
+                opacity: 1
+            }
         }
 
         @-webkit-keyframes efeitoCarrosel {
@@ -88,12 +109,16 @@
             border-radius: 8px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, .5);
             text-align: center;
+            animation-name: efeitoCarrosel;
             -webkit-animation-name: efeitoCarrosel;
             -moz-animation-name: efeitoCarrosel;
+            animation-duration: 32s;
             -webkit-animation-duration: 32s;
             -moz-animation-duration: 32s;
+            animation-iteration-count: infinite;
             -webkit-animation-iteration-count: infinite;
             -moz-animation-iteration-count: infinite;
+            animation-timing-function: linear;
             -webkit-animation-timing-function: linear;
             -moz-animation-timing-function: linear;
         }
@@ -105,44 +130,49 @@
 
         .caixa__card.cc__1 {
             background: linear-gradient(-229deg, #0093E9, #80D0C7);
+            animation-delay: -28s;
             -webkit-animation-delay: -28s;
             -moz-animation-delay: -28s;
         }
 
         .caixa__card.cc__2 {
-
             background: linear-gradient(-229deg, #00DBDE, #FC00FF);
+            animation-delay: -24s;
             -webkit-animation-delay: -24s;
             -moz-animation-delay: -24s;
         }
 
         .caixa__card.cc__3 {
-
             background: linear-gradient(-229deg, #50d990, #d4d054);
+            animation-delay: -20s;
             -webkit-animation-delay: -20s;
             -moz-animation-delay: -20s;
         }
 
         .caixa__card.cc__4 {
             background: linear-gradient(-229deg, #cf91ff, #5782F5);
+            animation-delay: -16s;
             -webkit-animation-delay: -16s;
             -moz-animation-delay: -16s;
         }
 
         .caixa__card.cc__5 {
             background: linear-gradient(-229deg, #642B73, #C6426E);
+            animation-delay: -12s;
             -webkit-animation-delay: -12s;
             -moz-animation-delay: -12s;
         }
 
         .caixa__card.cc__6 {
             background: linear-gradient(-229deg, #D9AFD9, #97D9E1);
+            animation-delay: -8s;
             -webkit-animation-delay: -8s;
             -moz-animation-delay: -8s;
         }
 
         .caixa__card.cc__7 {
             background: linear-gradient(-229deg, #FBAB7E, #F7CE68);
+            animation-delay: -4s;
             -webkit-animation-delay: -4s;
             -moz-animation-delay: -4s;
         }
