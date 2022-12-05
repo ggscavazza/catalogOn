@@ -1,0 +1,143 @@
+@media screen and (max-width: 1024px){
+    .container{
+        width: min(100% - 15px, 768px);
+        margin-inline: auto;
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .container{
+        width: min(100% - 15px, 1440px);
+        margin-inline: auto;
+    }
+}
+
+html{
+    background-color: #f9f9f9;
+    font-family: 'Fredoka One';
+    overflow-x: hidden;
+}
+
+.nav-container{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-container{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-bar{
+    display: flex;
+    width: 100%;
+    position: sticky;
+    margin: 0;
+    padding: 10px;
+    background-color: #090909;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.nav-footer{
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 15px;
+    background-color: #090909;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.btn-nav{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    outline: 2px solid #7EFFB2;
+    padding: 15px 30px;
+    overflow: hidden;
+    transition: color 1s;
+    border-radius: 100px;
+    font-weight: bold;
+}
+
+.btn-nav:hover{
+    color: #090909;
+}
+
+.btn-nav::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    z-index: -1;
+    width: 150%;
+    height: 100%;
+    background-color: #7EFFB2;
+    transform: scaleX(0) skewX(35deg);
+    transform-origin: left;
+    transition: transform 1s;
+}
+
+.btn-nav:hover::before{
+    transform: scaleX(1) skewX(35deg);
+}
+
+.link-nav{
+    font-size: 120%;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    transition: 0.8s ease-in-out;
+}
+
+.link-nav:hover, .link-nav:focus{
+    color: #7EFFB2;
+}
+
+ul{
+    position: relative;
+    display: flex;
+}
+
+ul li{
+    position: relative;
+    list-style: none;
+    margin: 0 20px;
+    cursor: pointer;
+    padding-top: 4px;
+}
+
+ul li::before{
+    font-family: "IonIcon";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16em;
+    height: 0;
+    overflow: hidden;
+    transition: 0.8s ease-in-out;
+}
+
+ul li:nth-child(1)::before{
+    content: "\f16d";
+    color: #7EFFB2;
+    border-bottom: 4px solid #7EFFB2;
+}
+
+ul li:hover::before{
+    height: 100%;
+}
